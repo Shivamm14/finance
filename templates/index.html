@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block main %}
+    <p><strong>Stocks, Shares</strong></p>
+    <ul>
+
+          {% for row in portfolio %}
+
+            {% if row['sum(shares)'] != 0 %}
+                <li>{{ row["stock"] }}, {{row['sum(shares)']}}</li>
+            {% endif %}
+
+          {% endfor %}
+    </ul>
+
+    <p><strong>Cash: </strong>{{cash}}</p>
+
+
+
+{% endblock %}

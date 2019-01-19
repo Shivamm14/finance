@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block main %}
+    <p><strong>Stocks, Share, Price, Action, Transaction</strong></p>
+    <ul>
+
+          {% for row in portfolio %}
+
+            {% if row['shares'] <= 0 %}
+                <li>{{ row["stock"] }}, {{row['shares'] * -1}}, {{row['price']}}, Sold, {{ row['dot'] }}</li>
+            {% endif %}
+
+            {% if row['shares'] > 0 %}
+                <li>{{ row["stock"] }}, {{row['shares'] }}, {{row['price']}}, Bought, {{ row['dot'] }}</li>
+            {% endif %}
+
+
+          {% endfor %}
+    </ul>
+
+
+
+{% endblock %}
